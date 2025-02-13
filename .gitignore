@@ -1,0 +1,7 @@
+# Ignorer l'environnement virtuel
+env/
+
+# Fichiers de configuration et caches Python
+__pycache__/
+*.pyc
+*.pyo
