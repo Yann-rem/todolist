@@ -38,3 +38,16 @@ def delete_task():
         print("Tâche supprimée avec succès !")
     else:
         print("Aucune tâche trouvée avec cet ID.")
+
+
+# Fonction pour mettre à jour la description d'une tâche
+def update_task():
+    task_id = input("Entrez l'ID de la tâche à mettre à jour : ")
+    new_description = input("Entrez la nouvelle description : ")
+    result = collection.update_one(
+        {"_id": task_id}, {"$set": {"description": new_description}}
+    )
+    if result.matched_count:
+        print("Description mise à jour avec succès !")
+    else:
+        print("Aucune tâche trouvée avec cet ID.")
