@@ -28,3 +28,13 @@ def add_task():
     task = {"description": description, "status": 0}  # Statut par défaut : Nouvelle
     collection.insert_one(task)
     print("Tâche ajoutée avec succès !")
+
+
+# Fonction pour supprimer une tâche
+def delete_task():
+    task_id = input("Entrez l'ID de la tâche à supprimer : ")
+    result = collection.delete_one({"_id": task_id})
+    if result.deleted_count:
+        print("Tâche supprimée avec succès !")
+    else:
+        print("Aucune tâche trouvée avec cet ID.")
