@@ -20,3 +20,11 @@ def show_tasks():
             print(
                 f"ID: {task['_id']} | Description: {task['description']} | Statut: {status_labels[task['status']]}"
             )
+
+
+# Fonction pour ajouter une tâche
+def add_task():
+    description = input("Entrez la description de la tâche : ")
+    task = {"description": description, "status": 0}  # Statut par défaut : Nouvelle
+    collection.insert_one(task)
+    print("Tâche ajoutée avec succès !")
