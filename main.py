@@ -68,3 +68,37 @@ def update_task_status():
         print("Statut mis à jour avec succès !")
     else:
         print("Aucune tâche trouvée avec cet ID.")
+
+
+# Menu principal
+def main():
+    while True:
+        print("\n--- Menu To-Do List ---")
+        print("1. Afficher les tâches")
+        print("2. Ajouter une tâche")
+        print("3. Supprimer une tâche")
+        print("4. Mettre à jour une tâche")
+        print("5. Mettre à jour le statut d'une tâche")
+        print("6. Quitter")
+
+        choice = input("Choisissez une option : ")
+
+        if choice == "1":
+            show_tasks()
+        elif choice == "2":
+            add_task()
+        elif choice == "3":
+            delete_task()
+        elif choice == "4":
+            update_task()
+        elif choice == "5":
+            update_task_status()
+        elif choice == "6":
+            print("Au revoir !")
+            break
+        else:
+            print("Option invalide. Veuillez réessayer.")
+
+
+if __name__ == "__main__":
+    main()
