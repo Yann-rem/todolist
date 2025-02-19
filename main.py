@@ -51,3 +51,20 @@ def update_task():
         print("Description mise à jour avec succès !")
     else:
         print("Aucune tâche trouvée avec cet ID.")
+
+
+# Fonction pour mettre à jour le statut d'une tâche
+def update_task_status():
+    task_id = input("Entrez l'ID de la tâche à mettre à jour : ")
+    print("Statuts disponibles :")
+    for key, value in status_labels.items():
+        print(f"{key}: {value}")
+    new_status = int(input("Entrez le nouveau statut (0, 1 ou 2) : "))
+    if new_status not in status_labels:
+        print("Statut invalide.")
+        return
+    result = collection.update_one({"_id": task_id}, {"$set": {"status": new_status}})
+    if result.matched_count:
+        print("Statut mis à jour avec succès !")
+    else:
+        print("Aucune tâche trouvée avec cet ID.")
